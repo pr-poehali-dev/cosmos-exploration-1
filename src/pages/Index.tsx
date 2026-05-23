@@ -1,4 +1,80 @@
+import { useState } from 'react';
+
+const PRODUCTS = [
+  {
+    id: 1,
+    name: 'Худи ГРАМОТНО',
+    desc: 'Оверсайз силуэт, плотный хлопок 380г/м², дроп-плечо',
+    tag: 'Хит',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/37e029a8-950b-4554-a003-6fde12fbe9c4.jpg',
+  },
+  {
+    id: 2,
+    name: 'Футболка ГРАМОТНО',
+    desc: 'Удлинённый крой, 100% хлопок, свободная посадка',
+    tag: 'Базовый',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/dd10b743-a789-45c1-aee2-d256d68aec48.jpg',
+  },
+  {
+    id: 3,
+    name: 'Карго ГРАМОТНО',
+    desc: 'Широкие брюки с карманами, свободный силуэт',
+    tag: 'Новинка',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/940955ed-cec7-4f25-a55a-14a2acd42c1b.jpg',
+  },
+  {
+    id: 4,
+    name: 'Свитшот ГРАМОТНО',
+    desc: 'Оверсайз, мягкий начёс внутри, нейтральный оттенок',
+    tag: 'Базовый',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/76db9b70-fe9f-48dc-bbf6-e485326733e1.jpg',
+  },
+  {
+    id: 5,
+    name: 'Лонгслив ГРАМОТНО',
+    desc: 'Удлинённые рукава, плотный трикотаж, оверсайз крой',
+    tag: 'Базовый',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/3f5699aa-183e-409c-85e6-22d5369e4248.jpg',
+  },
+  {
+    id: 6,
+    name: 'Зип-худи ГРАМОТНО',
+    desc: 'На молнии, оверсайз, плотный хлопок, тёмно-серый',
+    tag: 'Новинка',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/92e71c85-884f-4589-b903-c9a08a9b5e1f.jpg',
+  },
+];
+
+const TAG_COLORS: Record<string, string> = {
+  'Хит': 'bg-red-600 text-white',
+  'Новинка': 'bg-black text-white',
+  'Базовый': 'bg-white text-black border border-black',
+};
+
 export default function Index() {
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'ok' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+    try {
+      const res = await fetch('https://functions.poehali.dev/90e8288a-1d0a-4a4a-ade8-178acb37eaa6', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus('ok');
+        setForm({ name: '', email: '', message: '' });
+      } else {
+        setStatus('error');
+      }
+    } catch {
+      setStatus('error');
+    }
+  };
+
   return (
     <main className="min-h-screen bg-white">
       {/* Navigation */}
@@ -53,48 +129,37 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Work Section */}
+      {/* Products Section */}
       <section id="work" className="py-20 px-4 md:px-8 bg-black text-white">
         <div className="container mx-auto">
           <h2 className="text-6xl font-bold tracking-tighter mb-12">КОЛЛЕКЦИЯ</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Item 1 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square bg-white mb-4 overflow-hidden">
-                <img
-                  src="https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/f4c55ba0-c57f-49dc-b83e-f93cc13d15d6.jpg"
-                  alt="Оверсайз худи"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Худи ГРАМОТНО</h3>
-              <p className="text-neutral-400">Оверсайз силуэт, плотный хлопок, без лишних деталей</p>
-            </div>
-
-            {/* Item 2 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square bg-white mb-4 overflow-hidden">
-                <img
-                  src="https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/1d79b60d-c808-4802-8942-ef0932bf85b5.jpg"
-                  alt="Оверсайз футболка"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Футболка ГРАМОТНО</h3>
-              <p className="text-neutral-400">Удлинённый крой, дышащий материал, свободная посадка</p>
-            </div>
-
-            {/* Item 3 */}
-            <div className="group cursor-pointer">
-              <div className="aspect-square bg-white mb-4 overflow-hidden">
-                <div className="w-full h-full flex items-center justify-center bg-neutral-900 group-hover:bg-red-600 transition-colors duration-300">
-                  <span className="text-white text-6xl font-bold tracking-tighter">СКОРО</span>
+            {PRODUCTS.map((product) => (
+              <div key={product.id} className="group cursor-pointer">
+                <div className="aspect-square bg-neutral-100 mb-4 overflow-hidden relative">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <span className={`absolute top-3 left-3 text-xs uppercase tracking-widest px-2 py-1 font-bold ${TAG_COLORS[product.tag]}`}>
+                    {product.tag}
+                  </span>
                 </div>
+                <h3 className="text-xl font-bold mb-1">{product.name}</h3>
+                <p className="text-neutral-400 text-sm">{product.desc}</p>
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('contact');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="mt-4 px-6 py-2 border border-white text-white text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-colors"
+                >
+                  Узнать наличие
+                </button>
               </div>
-              <h3 className="text-xl font-bold mb-2">Новинки — осень 2025</h3>
-              <p className="text-neutral-400">Следующая капсула уже в разработке — подпишитесь, чтобы узнать первыми</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -176,47 +241,75 @@ export default function Index() {
               </div>
             </div>
             <div>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm uppercase tracking-widest mb-2">
-                    Имя
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
-                    placeholder="Ваше имя"
-                  />
+              {status === 'ok' ? (
+                <div className="flex flex-col justify-center h-full">
+                  <p className="text-4xl font-bold tracking-tighter mb-4">ОТПРАВЛЕНО</p>
+                  <p className="text-lg opacity-80">Ответим в ближайшее время!</p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="mt-8 w-fit px-8 py-3 bg-black text-white text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-colors"
+                  >
+                    Написать ещё
+                  </button>
                 </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm uppercase tracking-widest mb-2">
-                    Почта
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
-                    placeholder="Ваш email"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm uppercase tracking-widest mb-2">
-                    Сообщение
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
-                    placeholder="Ваш вопрос или заказ"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="mt-8 px-8 py-3 bg-black text-white text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-colors"
-                >
-                  Отправить
-                </button>
-              </form>
+              ) : (
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div>
+                    <label htmlFor="name" className="block text-sm uppercase tracking-widest mb-2">
+                      Имя
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
+                      placeholder="Ваше имя"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm uppercase tracking-widest mb-2">
+                      Почта
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
+                      placeholder="Ваш email"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm uppercase tracking-widest mb-2">
+                      Сообщение
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      value={form.message}
+                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      className="w-full bg-transparent border-b-2 border-white py-2 px-0 focus:outline-none focus:border-black placeholder-white/50"
+                      placeholder="Ваш вопрос или заказ"
+                      required
+                    />
+                  </div>
+                  {status === 'error' && (
+                    <p className="text-sm text-black bg-white/20 px-4 py-2">
+                      Что-то пошло не так. Попробуйте ещё раз.
+                    </p>
+                  )}
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="mt-8 px-8 py-3 bg-black text-white text-sm uppercase tracking-widest hover:bg-white hover:text-black transition-colors disabled:opacity-50"
+                  >
+                    {status === 'loading' ? 'Отправка...' : 'Отправить'}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -240,5 +333,5 @@ export default function Index() {
         </div>
       </footer>
     </main>
-  )
+  );
 }
