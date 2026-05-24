@@ -143,6 +143,10 @@ export default function Index() {
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
+                  <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none">
+                    <span className="text-white/20 font-black tracking-tighter leading-none text-center" style={{fontSize: 'clamp(1.2rem, 5vw, 2.2rem)', textShadow: '0 1px 4px rgba(0,0,0,0.18)'}}>GRAMOTNO</span>
+                    <span className="text-white/15 font-black tracking-tighter leading-none text-center" style={{fontSize: 'clamp(1rem, 4vw, 1.8rem)', textShadow: '0 1px 4px rgba(0,0,0,0.18)'}}>ГРАМОТНО</span>
+                  </div>
                   <span className={`absolute top-3 left-3 text-xs uppercase tracking-widest px-2 py-1 font-bold ${TAG_COLORS[product.tag]}`}>
                     {product.tag}
                   </span>
