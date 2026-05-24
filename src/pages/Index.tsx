@@ -23,7 +23,7 @@ const PRODUCTS = [
     desc: 'Широкие брюки с карманами, свободный силуэт',
     tag: 'Новинка',
     dark: true,
-    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/848ac824-fb8f-4e84-b014-0f05a4e4e3a7.jpg',
+    img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/5bd1c047-a713-42d8-8282-a2566d70dcdc.jpg',
   },
   {
     id: 4,
