@@ -153,7 +153,7 @@ export default function Index() {
                         <path id={`circle-${product.id}`} d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
                       </defs>
                       <text fontFamily="inherit" fontWeight="900" fontSize="16" letterSpacing="6" fill={product.dark ? 'rgba(255,255,255,0.92)' : 'rgba(0,0,0,0.82)'}>
-                        <textPath href={`#circle-${product.id}`}>GRAMOTNO • ГРАМОТНО • GRAMOTNO • ГРАМОТНО •</textPath>
+                        <textPath href={`#circle-${product.id}`}>GRAMOTNO • ГРАМОТНО • </textPath>
                       </text>
                     </svg>
                   </div>
