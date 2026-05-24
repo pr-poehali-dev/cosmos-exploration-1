@@ -6,6 +6,7 @@ const PRODUCTS = [
     name: 'Худи ГРАМОТНО',
     desc: 'Оверсайз силуэт, плотный хлопок 380г/м², дроп-плечо',
     tag: 'Хит',
+    dark: true,
     img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/d77d8faa-55a6-4818-a2c0-47ea804ffdd4.jpg',
   },
   {
@@ -13,6 +14,7 @@ const PRODUCTS = [
     name: 'Футболка ГРАМОТНО',
     desc: 'Удлинённый крой, 100% хлопок, свободная посадка',
     tag: 'Базовый',
+    dark: false,
     img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/68eb656f-9805-4454-8563-cd9a7b657bdb.jpg',
   },
   {
@@ -20,6 +22,7 @@ const PRODUCTS = [
     name: 'Карго ГРАМОТНО',
     desc: 'Широкие брюки с карманами, свободный силуэт',
     tag: 'Новинка',
+    dark: true,
     img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/b81269ed-69e3-4e55-9032-f15c816d7a89.jpg',
   },
   {
@@ -27,6 +30,7 @@ const PRODUCTS = [
     name: 'Свитшот ГРАМОТНО',
     desc: 'Оверсайз, мягкий начёс внутри, нейтральный оттенок',
     tag: 'Базовый',
+    dark: false,
     img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/f3c10621-57dd-440e-834b-e2156a15663c.jpg',
   },
   {
@@ -34,6 +38,7 @@ const PRODUCTS = [
     name: 'Лонгслив ГРАМОТНО',
     desc: 'Удлинённые рукава, плотный трикотаж, оверсайз крой',
     tag: 'Базовый',
+    dark: true,
     img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/43378d5e-4e65-4b0c-8c70-5521280474a5.jpg',
   },
   {
@@ -41,6 +46,7 @@ const PRODUCTS = [
     name: 'Зип-худи ГРАМОТНО',
     desc: 'На молнии, оверсайз, плотный хлопок, тёмно-серый',
     tag: 'Новинка',
+    dark: true,
     img: 'https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/607b2c6b-1df3-4997-8033-72cda5fa6430.jpg',
   },
 ];
@@ -144,8 +150,8 @@ export default function Index() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center pointer-events-none select-none">
-                    <span className="font-black tracking-widest leading-none text-center uppercase" style={{fontSize: 'clamp(1.4rem, 4vw, 2rem)', color: 'rgba(255,255,255,0.92)', textShadow: '0 2px 8px rgba(0,0,0,0.7), 0 0px 2px rgba(0,0,0,0.9)'}}>GRAMOTNO</span>
-                    <span className="font-black tracking-widest leading-none text-center uppercase" style={{fontSize: 'clamp(1rem, 3vw, 1.4rem)', color: 'rgba(255,255,255,0.75)', textShadow: '0 2px 8px rgba(0,0,0,0.7)'}}>ГРАМОТНО</span>
+                    <span className="font-black tracking-widest leading-none text-center uppercase" style={{fontSize: 'clamp(1.4rem, 4vw, 2rem)', color: product.dark ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.85)', textShadow: product.dark ? '0 2px 6px rgba(0,0,0,0.5)' : '0 1px 4px rgba(255,255,255,0.5)'}}>GRAMOTNO</span>
+                    <span className="font-black tracking-widest leading-none text-center uppercase" style={{fontSize: 'clamp(1rem, 3vw, 1.4rem)', color: product.dark ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.6)', textShadow: product.dark ? '0 2px 6px rgba(0,0,0,0.5)' : '0 1px 4px rgba(255,255,255,0.5)'}}>ГРАМОТНО</span>
                   </div>
                   <span className={`absolute top-3 left-3 text-xs uppercase tracking-widest px-2 py-1 font-bold ${TAG_COLORS[product.tag]}`}>
                     {product.tag}
