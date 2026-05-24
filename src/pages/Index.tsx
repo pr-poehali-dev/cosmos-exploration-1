@@ -147,9 +147,15 @@ export default function Index() {
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute bottom-6 left-0 right-0 flex flex-col items-center pointer-events-none select-none">
-                    <span className="font-black tracking-widest leading-none text-center uppercase" style={{fontSize: 'clamp(1.4rem, 4vw, 2rem)', color: product.dark ? 'rgba(255,255,255,0.95)' : 'rgba(0,0,0,0.85)', textShadow: product.dark ? '0 2px 6px rgba(0,0,0,0.5)' : '0 1px 4px rgba(255,255,255,0.5)'}}>GRAMOTNO</span>
-                    <span className="font-black tracking-widest leading-none text-center uppercase" style={{fontSize: 'clamp(1rem, 3vw, 1.4rem)', color: product.dark ? 'rgba(255,255,255,0.75)' : 'rgba(0,0,0,0.6)', textShadow: product.dark ? '0 2px 6px rgba(0,0,0,0.5)' : '0 1px 4px rgba(255,255,255,0.5)'}}>ГРАМОТНО</span>
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+                    <svg viewBox="0 0 200 200" width="70%" height="70%">
+                      <defs>
+                        <path id={`circle-${product.id}`} d="M 100,100 m -70,0 a 70,70 0 1,1 140,0 a 70,70 0 1,1 -140,0" />
+                      </defs>
+                      <text fontFamily="inherit" fontWeight="900" fontSize="16" letterSpacing="6" fill={product.dark ? 'rgba(255,255,255,0.92)' : 'rgba(0,0,0,0.82)'}>
+                        <textPath href={`#circle-${product.id}`}>GRAMOTNO • ГРАМОТНО • GRAMOTNO • ГРАМОТНО •</textPath>
+                      </text>
+                    </svg>
                   </div>
                   <span className={`absolute top-3 left-3 text-xs uppercase tracking-widest px-2 py-1 font-bold ${TAG_COLORS[product.tag]}`}>
                     {product.tag}
