@@ -52,7 +52,7 @@ const PRODUCTS = [
 ];
 
 const TAG_COLORS: Record<string, string> = {
-  'Хит': 'bg-red-600 text-white',
+  'Хит': 'bg-orange-600 text-white',
   'Новинка': 'bg-black text-white',
   'Базовый': 'bg-white text-black border border-black',
 };
@@ -90,13 +90,13 @@ export default function Index() {
             ГРАМОТНО
           </a>
           <div className="flex space-x-8">
-            <a href="#work" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+            <a href="#work" className="text-sm uppercase tracking-widest hover:text-orange-600 transition-colors">
               Коллекция
             </a>
-            <a href="#about" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+            <a href="#about" className="text-sm uppercase tracking-widest hover:text-orange-600 transition-colors">
               О бренде
             </a>
-            <a href="#contact" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+            <a href="#contact" className="text-sm uppercase tracking-widest hover:text-orange-600 transition-colors">
               Контакты
             </a>
           </div>
@@ -117,13 +117,13 @@ export default function Index() {
             </p>
             <a
               href="#work"
-              className="inline-block mt-8 px-8 py-3 bg-black text-white text-sm uppercase tracking-widest hover:bg-red-600 transition-colors"
+              className="inline-block mt-8 px-8 py-3 bg-black text-white text-sm uppercase tracking-widest hover:bg-orange-600 transition-colors"
             >
               Смотреть коллекцию
             </a>
           </div>
           <div className="col-span-12 md:col-span-5 flex items-center justify-center">
-            <div className="relative w-full aspect-square bg-red-600 overflow-hidden">
+            <div className="relative w-full aspect-square bg-orange-600 overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/ee33edc8-3dfc-4557-af9c-ade93c43108f/files/73e237d8-b17f-4a06-820e-febc6ecd39ac.jpg"
                 alt="ГРАМОТНО оверсайз"
@@ -225,7 +225,7 @@ export default function Index() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-4 md:px-8 bg-red-600 text-white">
+      <section id="contact" className="py-20 px-4 md:px-8 bg-orange-600 text-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
@@ -330,13 +330,13 @@ export default function Index() {
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm mb-4 md:mb-0">2025 ГРАМОТНО. Все права защищены.</p>
           <div className="flex space-x-8">
-            <a href="#" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+            <a href="#" className="text-sm uppercase tracking-widest hover:text-orange-600 transition-colors">
               Instagram
             </a>
-            <a href="#" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+            <a href="#" className="text-sm uppercase tracking-widest hover:text-orange-600 transition-colors">
               VK
             </a>
-            <a href="#" className="text-sm uppercase tracking-widest hover:text-red-600 transition-colors">
+            <a href="#" className="text-sm uppercase tracking-widest hover:text-orange-600 transition-colors">
               Telegram
             </a>
           </div>
